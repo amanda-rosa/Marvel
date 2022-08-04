@@ -1,72 +1,39 @@
 import React from 'react';
-import { SafeAreaView, FlatList } from 'react-native';
-import { StyleSheet, Text, View, Button } from 'react-native';
-
+import { SafeAreaView, FlatList, StatusBar } from 'react-native';
+import { StyleSheet, Text, View, ScrollView  } from 'react-native';
+import * as NavigationBar from 'expo-navigation-bar';
 import { useEffect, useState } from 'react';
 
 import filmes from './Detalhes';
+import { Chamada } from './Filme';
+import CardFilme from './CardFilme';
 
 
 export default function Lista({navigation}){
 
-  console.log(navigation);
+  const  dados =  Chamada();
+  const [filmes, setFilmes] = useState(null);
+  
+  NavigationBar.setVisibilityAsync('hidden');
+  NavigationBar.setBackgroundColorAsync('transparent');
+  NavigationBar.setPositionAsync('relative');
+
     return(
-        <View style={{backgroundColor:'#000', flex:1, justifyContent:'center'}}> 
-            <Text style={{color:'orange', fontSize:25, fontWeight:'bold', alignSelf:'center'}}>
-                Testar a tela ....
-            </Text>
 
+      
+        <FlatList style={{backgroundColor:'rgba(118, 0, 0, 0.87)'}}
+        
+        data={dados}
+        keyExtractor = {item => item.id}
+        renderItem = {({item}) => <CardFilme data={item} Navigation = {() =>  navigation.navigate('Detalhes',
+        {item}
+        ) }/>}
+        />
+        
+ 
 
-            <Button
-            onPress={() => navigation.navigate('Detalhes')}
-            title="Teste"
-            >
-            </Button>
-        </View>
+        
     );
 }
 
-/*
-import Film from '../filmes/Film';
 
-import api from '../service/api';
-
-
-export default function filmes() {
-
-    const [listFilms, setListFilms] = useState([]);
-
-    useEffect(()=>{
-        async function getMarvel() {
-          try {
-            const response = await api.get('/filmes'); 
-
-            setListFilms(response);
-            
-            
-          } catch (error) {
-            
-          };
-
-      
-
-        }
-        getMarvel();
-
-
-    },[]);
-
-  return (
-    <SafeAreaView>
-
-      <FlatList
-        data={listFilms}
-        keyExtractor={(itens)=> itens.id }
-        renderItem={(itens)=> <Film data={itens} />} 
-      />
-
-    </SafeAreaView>
-  );
-}
-
-*/

@@ -24,7 +24,7 @@ export default function App() {
       screenOptions={{
         title: 'Lista',
         headerStyle:  {
-          backgroundColor: 'orange',
+          backgroundColor: 'transparent',
         },
         headerTintColor: '#fff',
         headerTitleStyle: {
@@ -35,9 +35,10 @@ export default function App() {
       
       >
         <Stack.Screen name='Lista' component={Lista}
-        options={{ title:'Minhas Lista', headerShow: false, headerTransparent: false}} />
+        options={{ title:'Meu Catálogo Marvel', headerShow: false, headerTransparent: true, headerTitleAlign:'center'}} />
         <Stack.Screen name='Detalhes' component={Detalhes}
-        options={{ title:'Meus Detalhes', headerShow: false, headerTransparent: false}} />
+        options={{ title:'Detalhes do Filme', headerShow: false, headerTransparent: true, headerTitleAlign:'center',
+        headerTintColor:'#fff'}} />
 
       </Stack.Navigator>
       
@@ -51,5 +52,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
+  }
 });
