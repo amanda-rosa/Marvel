@@ -56,3 +56,14 @@ const styles = StyleSheet.create({
 
 
    
+
+
+    /*
+
+  useEffect(() => {
+    (async () => {
+      const { status } = await Camera.requestCameraPermissionsAsync;
+      setPermission(status === 'ok');
+    })();
+    }, []);
+    */
