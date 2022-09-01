@@ -70,7 +70,7 @@ let cam =  (camR) => {
     <TouchableOpacity
           style={{alignSelf:'flex-start', margin:5, marginLeft:100}}
           onPress={toggleCameraType}>
-          <FontAwesome name="home" size={30} color="#FFF" 
+          <FontAwesome name="refresh" size={30} color="#FFF" 
    />
         </TouchableOpacity>
 
